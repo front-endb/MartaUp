@@ -89,7 +89,6 @@ body{
 .header-slider {
   padding-top: 100px;
 }
-.header-slider__item {}
 .header-slider__item-wrapper {
   display: -webkit-flex;
   display: -moz-flex;
@@ -98,7 +97,6 @@ body{
   display: flex;
   justify-content: space-between;
 }
-.header-slider__item-info {}
 .header-slider__title {
   font-weight: bold;
   font-size: 45px;
@@ -303,9 +301,6 @@ body{
   left: 0;
   right: 0;
 }
-.footer {
-
-}
 .footer__inner {
   display: -webkit-flex;
   display: -moz-flex;
@@ -352,8 +347,8 @@ body{
      padding-top: 30px;
   }
   .advantages__img-item{
-	width: 80%;
-	text-align: center;
+  	width: 80%;
+  	text-align: center;
   }
   .advantages__img{
   	display: -webkit-flex;
@@ -472,27 +467,38 @@ body{
 	}
 }
 @media(max-width: 570px){
+  body.lock {
+    overflow: hidden;
+  }
   .menu__list{
     display: none;
-    top: 120px;
     width: 100%;
+    height: 100%;
     position: absolute;
+    top: 0;
     left: 0;
     text-align: center;
     background-color: #1959ad;
     z-index: 5;
+  }
+  .menu__list.active {
+    display: block;
+    overflow: auto;
   }
   .menu__list li+li{
     padding-left: 0;
   }
   .menu__list a{
     display: block;
-    padding:10px 0;
+    padding:20px 0;
+    font-size: 25px;
   }
   .menu__btn{
     width: 30px;
     height: 20px;
     position: relative;
+    z-index: 10;
+    transition: all 0.3s ease 0s;
   }
   .menu__btn:before, .menu__btn:after{
     content: "";
@@ -500,12 +506,21 @@ body{
     height: 2px;
     background-color: #fff;
     position: absolute;
+    transition: all 0.3s ease 0s;
   }
   .menu__btn:before{
     top: 0;
   }
+  .menu__btn.active:before{
+    transform: rotate(45deg);
+    top: 9px;
+  }
   .menu__btn:after{
     bottom: 0;
+  }
+  .menu__btn.active:after{
+    transform: rotate(-45deg);
+    bottom: 9px;
   }
   .menu__btn span{
     width: 100%;
@@ -513,6 +528,11 @@ body{
     background-color: #fff;
     position: absolute;
     top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  .menu__btn.active span {
+    opacity: 0;
+    visibility: hidden;
   }
   .header-slider__info{
     padding: 22px 30px 10px 0;
